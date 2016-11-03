@@ -8,9 +8,11 @@ void codeTest::runTests()
 {
      LinkedListOfInts emptyTest;
      LinkedListOfInts sizeTest;
+     LinkedListOfInts searchTest;
 
      testIsEmpty(emptyTest);
      testSize(sizeTest);
+     testSearch(searchTest);
 }
 
 void codeTest::testIsEmpty(LinkedListOfInts tester)
@@ -156,5 +158,96 @@ void codeTest::testSize(LinkedListOfInts tester)
      {
           std::cout<<"FAILED\n";
           //write "Test on size() after removing from an empty list gave a nonzero size\n" onto bug.txt
+     }
+}
+
+void codeTest::testSearch(LinkedListOfInts tester)
+{
+     std::cout<<"Testing search(): \n";
+
+     //BRAND NEW LIST//
+     std::cout<<"\ta new list: ";
+     if(!tester.search(3))
+     {
+          std::cout<<"PASSED\n";
+     }
+     else
+     {
+          std::cout<<"FAILED\n";
+          //write "test on search() on a new list, which is empty, returns true\n" to bug.txt
+     }
+
+     //POPULATED LIST//
+     std::cout<<"\ta populated list with existing search value (addBack): ";
+     tester.addBack(5);
+     tester.addBack(7);
+     if(tester.search(7))
+     {
+          std::cout<<"PASSED\n";
+     }
+     else
+     {
+          std::cout<<"FAILED\n";
+          //write "Test on search() after adding nodes to the back while searching for an existing value returns false\n" onto bug.txt
+     }
+
+     std::cout<<"\ta poplulated list without the search value (addBack): ";
+     if(!tester.search(3))
+     {
+          std::cout<<"PASSED\n";
+     }
+     else
+     {
+          std::cout<<"FAILED\n";
+          //write "Test on search() with a value not in the list after adding to the back returns true\n" onto bug.txt
+     }
+
+     std::cout<<"\ta populated list with existing search value (addFront): ";
+     tester.addFront(51);
+     tester.addFront(27);
+     if(tester.search(51))
+     {
+          std::cout<<"PASSED\n";
+     }
+     else
+     {
+          std::cout<<"FAILED\n";
+          //write "Test on search() after adding nodes to the front while searching for an existing value returns false\n" onto bug.txt
+     }
+
+     std::cout<<"\ta poplulated list without the search value (addFront): ";
+     if(!tester.search(3))
+     {
+          std::cout<<"PASSED\n";
+     }
+     else
+     {
+          std::cout<<"FAILED\n";
+          //write "Test on search() with a value not in the list after adding to the front returns true\n" onto bug.txt
+     }
+
+     //SEARCH FOR REMOVED VALUE//
+     std::cout<<"\tsearching for a value that has been removed from the front: ";
+     tester.removeFront(); //removes 27
+     if(!tester.search(27))
+     {
+          std::cout<<"PASSED\n";
+     }
+     else
+     {
+          std::cout<<"FAILED\n";
+          //write "Test on search() with a value removed from the front of the list returns true\n" onto bug.txt
+     }
+
+     std::cout<<"\tsearching for a value that has been removed from the back: ";
+     tester.removeBack();
+     if(!tester.search(7))
+     {
+          std::cout<<"PASSED\n";
+     }
+     else
+     {
+          std::cout<<"FAILED\n";
+          //write "Test on search() with a value removed from the back of the list returns true\n" onto bug.txt
      }
 }

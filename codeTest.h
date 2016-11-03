@@ -21,15 +21,10 @@ class codeTest
                //case 3: remove a couple nodes, should return correct number -- DONE
                //case 4: removed more nodes than available, should return zero -- DONE
           //Test search()
-               //case 1: new list returns false
-               //case 2: added nodes and search for existing value, should return true
-               //case 3: search for nonexistent value, should return false
-               //case 4: remove a node and search for that value, return false
-               //case 5: remove more nodes than available and search, should return false
-               //case 6: redo cases 2 through 4
-
-     //CAN STOP WORKING
-
+               //case 1: new list returns false -- DONE
+               //case 2: added nodes and search for existing value, should return true -- DONE
+               //case 3: search for nonexistent value, should return false -- DONE
+               //case 4: remove a node and search for that value, return false -- DONE
           //Test addBack(int value)
                //case 1: add to empty list, should be one node with correct value
                //case 2: add again, check that the new node is behind the first node
@@ -68,11 +63,10 @@ class codeTest
                //thoughts:
                     //make multiple methods for each case
                          //manipulate a linked list and run the tests at each step
-                    //make one test method for each linked list method
+                    //make one test method for each linked list method <-- This one
                          //pass it a new linked list to manipulate on its own
           //write any bugs to a file
                //thoughts:
-                    //maybe return strings???
                     //or just write to the file at the end of each test method
                          //only if the string isn't empty
           //must print out what each test is doing and if it passed or failed
@@ -84,6 +78,7 @@ class codeTest
                void runTests();
                void testIsEmpty(LinkedListOfInts tester);
                void testSize(LinkedListOfInts tester);
+               void testSearch(LinkedListOfInts tester);
 
      private:
 
