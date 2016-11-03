@@ -10,20 +10,16 @@
 class codeTest
 {
      public:
-          //Test constructor
-               //make sure the list is created empty and looking at nullptr
           //Test isEmpty()
                //case 1: new list returns true -- DONE
                //case 2: added nodes, should return false -- DONE
-               //case 3: remove a couple nodes, should return false -- DONE
-               //case 4: removes more nodes than available, should return true
+               //case 3: remove all nodes, should return true -- DONE
+               //case 4: remove on an empty list, should return true -- DONE
           //Test size()
-               //case 1: new list returns zero
-               //case 2: added nodes, return correct number of nodes
-               //case 3: remove a couple nodes, should return correct number
-               //case 4: added some more, should return correct number
-               //case 5: removed more nodes than available, should return zero
-               //case 6: add some nodes again, should return correct number
+               //case 1: new list returns zero -- DONE
+               //case 2: added nodes, return correct number of nodes -- DONE
+               //case 3: remove a couple nodes, should return correct number -- DONE
+               //case 4: removed more nodes than available, should return zero -- DONE
           //Test search()
                //case 1: new list returns false
                //case 2: added nodes and search for existing value, should return true
@@ -31,6 +27,9 @@ class codeTest
                //case 4: remove a node and search for that value, return false
                //case 5: remove more nodes than available and search, should return false
                //case 6: redo cases 2 through 4
+
+     //CAN STOP WORKING
+
           //Test addBack(int value)
                //case 1: add to empty list, should be one node with correct value
                //case 2: add again, check that the new node is behind the first node
@@ -81,11 +80,12 @@ class codeTest
           //make a method in which a bug description is passed to it
                //will write the bug to the text file
 
-               codeTest(LinkedListOfInts testList);
-               void testIsEmpty();
+               codeTest();
+               void runTests();
+               void testIsEmpty(LinkedListOfInts tester);
+               void testSize(LinkedListOfInts tester);
 
      private:
-          //LinkedList object to test on
-          LinkedListOfInts tester;
+
 };
 #endif

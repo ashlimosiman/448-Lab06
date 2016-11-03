@@ -1,11 +1,18 @@
 #include "codeTest.h"
 
-codeTest::codeTest(LinkedListOfInts testList)
+codeTest::codeTest()
 {
-     tester = testList;
 }
 
-void codeTest::testIsEmpty()
+void codeTest::runTests()
+{
+     LinkedListOfInts emptyTest;
+     LinkedListOfInts sizeTest;
+
+     testIsEmpty();
+}
+
+void codeTest::testIsEmpty(LinkedListOfInts tester)
 {
      std::cout<<"Testing isEmpty():\n";
 
@@ -18,7 +25,7 @@ void codeTest::testIsEmpty()
      else
      {
           std::cout<<"FAILED\n";
-          //write "Test on isEmpty() with a new list returns false\n" onto bug text file
+          //write "Test on isEmpty() with a new list returns false\n" onto bug.txt
      }
 
      //LIST AFTER NODES ADDED//
@@ -33,30 +40,120 @@ void codeTest::testIsEmpty()
      else
      {
           std::cout<<"FAILED\n";
-          //write "Test on isEmpty() with a list of a size of at least one node returns true\n" onto bug text file
+          //write "Test on isEmpty() with a list of a size of at least one node returns true\n" onto bug.txt
      }
 
-     //POPULATED LIST AFTER ONE REMOVE//
-     std::cout<<"\tlist after removing, but still has nodes: ";
-     if(tester.removeBack())
+     //LIST AFTER ALL REMOVES//
+     std::cout<<"\tlist after removing all nodes: ";
+     tester.removeBack();
+     tester.removeBack();
+     tester.removeBack();
+     if(tester.isEmpty())
      {
-          if(tester.isEmpty())
-          {
-               std::cout<<"PASSED\n";
-          }
-          else
-          {
-               std::cout<<"FAILED\n";
-               //write "Test on isEmpty() with a list after removing one node, but still populated returns true\n" onto bug text file
-          }
+          std::cout<<"PASSED\n";
      }
-     else//COULDN'T EVEN REMOVE
+     else
      {
-          std::cout<<"ERROR: COULD NOT REMOVE\n\n";
+          std::cout<<"FAILED\n";
+          //write "Test on isEmpty() with a list after removing all nodes returns true\n" onto bug.txt
      }
 
-     //REMOVE MORE NODES THAN ARE PRESENT//
-     std::cout<<"\tlist after removing more nodes than available: ";
-     while(tester.removeBack()){}
-     
+     //LIST AFTER REMOVE ON EMPTY LIST//
+     std::cout<<"\tlist after removing on an empty list: ";
+     tester.removeBack();
+     if(tester.isEmpty())
+     {
+          std::cout<<"PASSED\n";
+     }
+     else
+     {
+          std::cout<<"FAILED\n";
+          //write "Test on isEmpty() with an empty list after removing returns true\n" onto bug.txt
+     }
+}
+
+void codeTest::testSize(LinkedListOfInts tester)
+{
+     std::cout<<"Testing size(): \n";
+
+     //BRAND NEW LIST//
+     std::cout<<"\ta new list: ";
+     if(tester.size() == 0)
+     {
+          std::cout<<"PASSED\n";
+     }
+     else
+     {
+          std::cout<<"FAILED\n";
+          //write "Test on size() with a new list returns a nonzero value\n" onto bug.txt
+     }
+
+     //LIST AFTER ADDING NODES//
+     std::cout<<"\tlist after adding nodes to the front: ";
+     tester.addFront(5);
+     tester.addFront(8);
+     tester.addFront(20);
+     if(tester.size() == 3)
+     {
+          std::cout<<"PASSED\n";
+     }
+     else
+     {
+          std::cout<<"FAILED\n";
+          //write "Test on size() with a populated list after adding to the front returns incorrect size\n" onto bug.txt
+     }
+
+     std::cout<<"\tlist after adding nodes: ";
+     tester.addBack(34);
+     tester.addBack(56);
+     if(tester.size() == 5)
+     {
+          std::cout<<"PASSED\n";
+     }
+     else
+     {
+          std::cout<<"FAILED\n";
+          //write "Test on size() with a populated list after adding to the back returns incorrect size\n" onto bug.txt
+     }
+
+     //POPULATED LIST AFTER REMOVING//
+     std::cout<<"\tlist after removing back node: ";
+     tester.removeBack();
+     if(tester.size() == 4)
+     {
+          std::cout<<"PASSED\n";
+     }
+     else
+     {
+          std::cout<<"FAILED\n";
+          //write "Test on size() with a populated list after removing back node returns the incorrect size after a remove\n" onto bug.txt
+     }
+
+     std::cout<<"\tlist after removing front node: ";
+     tester.removeFront();
+     if(tester.size() == 3)
+     {
+          std::cout<<"PASSED\n";
+     }
+     else
+     {
+          std::cout<<"FAILED\n";
+          //write "Test on size() with a populated list after removing front node returns the incorrect size after a remove\n" onto bug.txt
+     }
+
+     //REMOVE FROM EMPTY LIST//
+     std::cout<<"\tafter removing from an empty list: ";
+     tester.removeFront();
+     tester.removeFront();
+     tester.removeFront();
+     tester.removeFront();
+     if(tester.size() == 0)
+     {
+          std::cout<<"PASSED\n";
+     }
+     else
+     {
+          std::cout<<"FAILED\n";
+          //write "Test on size() after removing from an empty list gave a nonzero size\n" onto bug.txt
+     }
 }
