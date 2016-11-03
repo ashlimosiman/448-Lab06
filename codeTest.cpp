@@ -9,7 +9,8 @@ void codeTest::runTests()
      LinkedListOfInts emptyTest;
      LinkedListOfInts sizeTest;
 
-     testIsEmpty();
+     testIsEmpty(emptyTest);
+     testSize(sizeTest);
 }
 
 void codeTest::testIsEmpty(LinkedListOfInts tester)
