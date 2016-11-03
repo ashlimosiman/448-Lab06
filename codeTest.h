@@ -75,12 +75,14 @@ class codeTest
                //will write the bug to the text file
 
                codeTest();
+               codeTest(int num);
                void runTests();
                void testIsEmpty(LinkedListOfInts tester);
                void testSize(LinkedListOfInts tester);
                void testSearch(LinkedListOfInts tester);
+               void testAddBack(LinkedListOfInts tester);
 
      private:
-
+         int size;
 };
 #endif
