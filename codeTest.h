@@ -25,6 +25,8 @@ class codeTest
                //case 2: added nodes and search for existing value, should return true -- DONE
                //case 3: search for nonexistent value, should return false -- DONE
                //case 4: remove a node and search for that value, return false -- DONE
+
+               //what's left
           //Test addBack(int value)
                //case 1: add to empty list, should be one node with correct value
                //case 2: add again, check that the new node is behind the first node
@@ -45,19 +47,16 @@ class codeTest
                //don't forget to check the last node is looking at nullptr
           //Test removeBack()
                //case 1: try to remove from new list return false
-                    //should throw error
                //case 2: add some nodes and remove one, should return true
                     //also check if it removed the correct one
                //case 3: remove more nodes than available, return false on the last remove
-                    //should throw error
                //don't forget to check the last node is looking at nullptr
           //Test removeFront()
                //case 1: try to remove from new list return false
-                    //should throw error
+
                //case 2: add some nodes and remove one, should return true
                     //also check if it removed the correct one
                //case 3: remove more nodes than available, return false on the last remove
-                    //should throw error
                //don't forget to check the last node is looking at nullptr
           //method to run all tests
                //thoughts:
@@ -76,9 +75,9 @@ class codeTest
 
                codeTest();
                void runTests();
-               void testIsEmpty(LinkedListOfInts tester);
-               void testSize(LinkedListOfInts tester);
-               void testSearch(LinkedListOfInts tester);
+               void testIsEmpty();
+               void testSize();
+               void testSearch();
 
      private:
 

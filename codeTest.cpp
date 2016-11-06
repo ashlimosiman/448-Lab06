@@ -6,18 +6,22 @@ codeTest::codeTest()
 
 void codeTest::runTests()
 {
+     /*
      LinkedListOfInts emptyTest;
      LinkedListOfInts sizeTest;
      LinkedListOfInts searchTest;
+     */
 
-     testIsEmpty(emptyTest);
-     testSize(sizeTest);
-     testSearch(searchTest);
+     testIsEmpty();
+     testSize();
+     testSearch();
 }
 
-void codeTest::testIsEmpty(LinkedListOfInts tester)
+void codeTest::testIsEmpty()
 {
      std::cout<<"Testing isEmpty():\n";
+
+     LinkedListOfInts tester;
 
      //BRAND SPANKIN NEW LIST//
      std::cout<<"\ta new list: ";
@@ -75,9 +79,11 @@ void codeTest::testIsEmpty(LinkedListOfInts tester)
      }
 }
 
-void codeTest::testSize(LinkedListOfInts tester)
+void codeTest::testSize()
 {
      std::cout<<"Testing size(): \n";
+
+     LinkedListOfInts tester;
 
      //BRAND NEW LIST//
      std::cout<<"\ta new list: ";
@@ -161,9 +167,11 @@ void codeTest::testSize(LinkedListOfInts tester)
      }
 }
 
-void codeTest::testSearch(LinkedListOfInts tester)
+void codeTest::testSearch()
 {
      std::cout<<"Testing search(): \n";
+
+     LinkedListOfInts tester;
 
      //BRAND NEW LIST//
      std::cout<<"\ta new list: ";
