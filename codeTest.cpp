@@ -392,12 +392,18 @@ bool codeTest::test10()
           }
           if(x%4 == 0)
           {
-               tester.removeFront();
+               if(tester.removeFront())
+               {
+                    std::cout<<"\nfront node gone\n";
+               }
                tracker--;
           }
           if(x%5 == 0)
           {
-               tester.removeBack();
+               if(tester.removeBack())
+               {
+                    std::cout<<"\nback node gone\n";
+               }
                tracker--;
           }
      }
