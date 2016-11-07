@@ -40,13 +40,14 @@ bool codeTest::test1()
      if(tester.size() == 0)
      {
           std::cout<<"PASSED\n";
+          numPassed++:
      }
      else
      {
           isPassed=false;
           std::cout<<"FAILED\n \tExpected size: 0\n \tReceived size: "
                     <<tester.size()<<"\n";
-          //write to file "new list returns a size that's not zero"
+          writeBugs("new list returns a size that's not zero\n");
      }
 
      std::cout<<"2: A new list is seen as empty: ";
@@ -54,12 +55,13 @@ bool codeTest::test1()
      if(tester.isEmpty())
      {
           std::cout<<"PASSED\n";
+          numPassed++;
      }
      else
      {
           isPassed=false;
           std::cout<<"FAILED\n \tisEmpty() returned false\n";
-          //write to file "isEmpty() on a new list returned false"
+          writeBugs("isEmpty() on a new list returned false\n");
      }
 
      std::cout<<"3: Searching for a value on a new list returns false: ";
@@ -68,11 +70,12 @@ bool codeTest::test1()
      {
           isPassed=false;
           std::cout<<"FAILED\n \tsearching for a value returned true\n";
-          //write to file "searching for a value on a new list returned true"
+          writeBugs("searching for a value on a new list returned true\n");
      }
      else
      {
           std::cout<<"PASSED\n";
+          numPassed++;
      }
 
      return(isPassed);
@@ -89,11 +92,12 @@ bool codeTest::test2()
      {
           isPassed=false;
           std::cout<<"FAILED\n \tremoving a value from the front of an empty list returned true\n";
-          //write to file "removeFront() on an empty list returned true"
+          writeBugs("removeFront() on an empty list returned true\n");
      }
      else
      {
           std::cout<<"PASSED\n";
+          numPassed++;
      }
 
      std::cout<<"5: size is still zero after removing the front node of an empty list: ";
@@ -101,12 +105,13 @@ bool codeTest::test2()
      if(tester.size() == 0)
      {
           std::cout<<"PASSED\n";
+          numPassed++;
      }
      else
      {
           isPassed=false;
           std::cout<<"FAILED\n \tExpected size: 0 Received size: "<<tester.size()<<"\n";
-          //write to file "removeFront() on an empty list changed the size from zero";
+          writeBugs("removeFront() on an empty list changed the size from zero\n");
      }
 
      std::cout<<"6: list still seen as empty after removing front node of an empty list: ";
@@ -114,12 +119,13 @@ bool codeTest::test2()
      if(tester.isEmpty())
      {
           std::cout<<"PASSED\n";
+          numPassed++;
      }
      else
      {
           isPassed=false;
           std::cout<<"FAILED\n \tisEmpty() returned false when removeFront() was used on an empty list\n";
-          //write to file "removeFront() on an empty list has made isEmpty() return false"
+          writeBugs("removeFront() on an empty list has made isEmpty() return false\n");
      }
 
      return(isPassed);
@@ -136,11 +142,12 @@ bool codeTest::test3()
      {
           isPassed=false;
           std::cout<<"FAILED\n \tremoving a value from the back of an empty list returned true\n";
-          //write to file "removeBack() on an empty list returned true"
+          writeBugs("removeBack() on an empty list returned true\n");
      }
      else
      {
           std::cout<<"PASSED\n";
+          numPassed++;
      }
 
      std::cout<<"8: size is still zero after removing the back node of an empty list: ";
@@ -148,12 +155,13 @@ bool codeTest::test3()
      if(tester.size() == 0)
      {
           std::cout<<"PASSED\n";
+          numPassed++;
      }
      else
      {
           isPassed=false;
           std::cout<<"FAILED\n \tExpected size: 0 Received size: "<<tester.size()<<"\n";
-          //write to file "removeBack() on an empty list changed the size from zero";
+          writeBugs("removeBack() on an empty list changed the size from zero\n");
      }
 
      std::cout<<"9: list still seen as empty after removing back node of an empty list: ";
@@ -161,12 +169,13 @@ bool codeTest::test3()
      if(tester.isEmpty())
      {
           std::cout<<"PASSED\n";
+          numPassed++;
      }
      else
      {
           isPassed=false;
           std::cout<<"FAILED\n \tisEmpty() returned false when removeBack() was used on an empty list\n";
-          //write to file "removeBack() on an empty list has made isEmpty() return false"
+          writeBugs("removeBack() on an empty list has made isEmpty() return false\n");
      }
 
      return(isPassed);
@@ -183,12 +192,13 @@ bool codeTest::test4()
      if(tester.size() == 1)
      {
           std::cout<<"PASSED\n";
+          numPassed++;
      }
      else
      {
           isPassed = false;
           std::cout<<"FAILED\n \tExpected size: 1 Received size: "<<tester.size()<<"\n";
-          //write to file "addFront() did not increment size correctly after only one add"
+          writeBugs("addFront() did not increment size correctly after only one add\n");
      }
 
      std::cout<<"11: List seen as not empty after adding node to the front: ";
@@ -197,11 +207,12 @@ bool codeTest::test4()
      {
           isPassed = false;
           std::cout<<"FAILED\n \tafter adding one node to the front, isEmpty() returned true\n";
-          //write to file "isEmpty() returned true after adding one node to the front"
+          writeBugs("isEmpty() returned true after adding one node to the front\n");
      }
      else
      {
           std::cout<<"PASSED\n";
+          numPassed++;
      }
 
      return(isPassed);
@@ -218,21 +229,27 @@ bool codeTest::test5()
      if(tester.size() == 1)
      {
           std::cout<<"PASSED\n";
+          numPassed++;
      }
      else
      {
           isPassed = false;
           std::cout<<"FAILED\n \tExpected size: 1 Received size: "<<tester.size()<<"\n";
-          //write to file "addBack() did not increment size correctly after adding one node to the back"
+          writeBugs("addBack() did not increment size correctly after adding one node to the back\n");
      }
 
-     std::cout<<"13: List seen as not epmty after adding one node to the back: ";
+     std::cout<<"13: List seen as not empty after adding one node to the back: ";
      numTests++;
      if(tester.isEmpty())
      {
           isPassed = false;
           std::cout<<"FAILED\n \tafter adding one node to the back, isEmpty() returned true\n";
-          //write to file "isEmpty() returned true after adding one node to the back"
+          writeBugs("isEmpty() returned true after adding one node to the back\n");
+     }
+     else
+     {
+          std::cout<<"PASSED\n";
+          numPassed++;
      }
 
      return(isPassed);
@@ -258,12 +275,13 @@ bool codeTest::test6()
      if(tester.size() == tracker)
      {
           std::cout<<"PASSED\n";
+          numPassed++;
      }
      else
      {
           isPassed = false;
           std::cout<<"FAILED\n \tExpected size: "<<tracker<<" Received size: "<<tester.size()<<"\n";
-          //write to file "after adding multiple vaues to the front of the list, the size was not correct"
+          writeBugs("after adding multiple vaues to the front of the list, the size was not correct\n");
      }
 
      return(isPassed);
@@ -289,12 +307,13 @@ bool codeTest::test7()
      if(tester.size() == tracker)
      {
           std::cout<<"PASSED\n";
+          numPassed++;
      }
      else
      {
           isPassed = false;
           std::cout<<"FAILED\n \t Expected size: "<<tracker<<" Received size: "<<tester.size()<<"\n";
-          //write to file "after adding multiple nodes to the back of the list, the size was not correct"
+          writeBugs("after adding multiple nodes to the back of the list, the size was not correct\n");
      }
 
      return(isPassed);
@@ -325,12 +344,13 @@ bool codeTest::test8()
      if(tester.size() == tracker)
      {
           std::cout<<"PASSED\n";
+          numPassed++;
      }
      else
      {
           isPassed = false;
           std::cout<<"FAILED\n \tExpected size: "<<tracker<<" Received size: "<<tester.size()<<"\n";
-          //write to file "after removing front nodes, the size was not correctly tracked"
+          writeBugs("after removing front nodes, the size was not correctly tracked\n");
      }
 
      return(isPassed);
@@ -361,12 +381,13 @@ bool codeTest::test9()
      if(tester.size() == tracker)
      {
           std::cout<<"PASSED\n";
+          numPassed++;
      }
      else
      {
           isPassed = false;
           std::cout<<"FAILED\n \tExpected size: "<<tracker<<" Received size: "<<tester.size()<<"\n";
-          //write to file "after removing back nodes, size was not correctly tracked"
+          writeBugs("after removing back nodes, size was not correctly tracked\n");
      }
 
      return(isPassed);
@@ -411,11 +432,12 @@ bool codeTest::test10()
      {
           isPassed = false;
           std::cout<<"FAILED\n \tsearched for a value, 41, never on the list and returned true\n";
-          //write on file "search(41) returned true when 41 was never added"
+          writeBugs("search(41) returned true when 41 was never added\n");
      }
      else
      {
           std::cout<<"PASSED\n";
+          numPassed++;
      }
 
      std::cout<<"19: searching for a value on the list: ";
@@ -423,12 +445,13 @@ bool codeTest::test10()
      if(tester.search(2))//is on the list
      {
           std::cout<<"PASSED\n";
+          numPassed++;
      }
      else
      {
           isPassed = false;
           std::cout<<"FAILED\n \tsearched for a value, 2, on the list and returned false\n";
-          //write on file "search(2) returned false when 2 was on the list"
+          writeBugs("search(2) returned false when 2 was on the list\n");
      }
 
      std::cout<<"20: searching for value removed from the front: ";
@@ -437,11 +460,12 @@ bool codeTest::test10()
      {
           isPassed = false;
           std::cout<<"FAILED\n \tsearch for a value, 4, removed from the front returned true\n";
-          //write to file "search(4) returned true when 4 was removed from the front"
+          writeBugs("search(4) returned true when 4 was removed from the front\n");
      }
      else
      {
           std::cout<<"PASSED\n";
+          numPassed++;
      }
 
      std::cout<<"21: searching for a value removed from the back: ";
@@ -450,7 +474,12 @@ bool codeTest::test10()
      {
           isPassed = false;
           std::cout<<"FAILED\n \tsearch for a value, 30, removed from the back returned true\n";
-          //write to file "search(30) returned true when 30 was removed from the back"
+          writeBugs("search(30) returned true when 30 was removed from the back\n");
+     }
+     else
+     {
+          std::cout<<"PASSED\n";
+          numPassed++;
      }
 
      return(isPassed);
@@ -493,11 +522,12 @@ bool codeTest::test11()
      if(isPassed)
      {
           std::cout<<"PASSED\n";
+          numPassed++;
      }
      else
      {
           std::cout<<"FAILED\n \tremoveFront() was not working correctly. Comparison Below: \n";
-          //write to file "removeFront() did not correctly uphold the order of the list"
+          writeBugs("removeFront() did not correctly uphold the order of the list\n");
      }
 
      std::cout<<"COMPARISON:\n YOURS: { ";
@@ -561,11 +591,12 @@ bool codeTest::test12()
      if(isPassed)
      {
           std::cout<<"PASSED\n";
+          numPassed++;
      }
      else
      {
           std::cout<<"FAILED\n \tremoveBack() was not working correctly. Comparison Below: \n";
-          //write to file "removeBack() did not correctly uphold the order of the list"
+          writeBugs("removeBack() did not correctly uphold the order of the list\n");
      }
 
      std::cout<<"COMPARISON:\n YOURS: { ";
@@ -590,4 +621,14 @@ bool codeTest::test12()
      std::cout<<" }\n\n";
 
      return(isPassed);
+}
+
+void codeTest::writeBugs(std::string bug)
+{
+     std::ofstream bugsFile;
+     bugsFile.open("bugs.txt");
+
+     bugsFile<<bug;
+
+     bugsFile.close();
 }
