@@ -23,7 +23,7 @@ void codeTest::runTests()
      test7();
      test8();
      test9();
-     
+
 
      std::cout<<"\n\n number of tests done: "<<numTests<<"\n\n";
 }
@@ -365,6 +365,90 @@ bool codeTest::test9()
           isPassed = false;
           std::cout<<"FAILED\n \tExpected size: "<<tracker<<" Received size: "<<tester.size()<<"\n";
           //write to file "after removing back nodes, size was not correctly tracked"
+     }
+
+     return(isPassed);
+}
+
+bool codeTest::test10()
+{
+     bool isPassed = true;
+     LinkedListOfInts tester;
+     int tracker = 0;
+
+     size = size*2;//increase size to better randomly add and remove nodes
+
+     for(int x = 0 ; x < size ; x++)
+     {
+          if(x%2 == 0)
+          {
+               tester.addFront(x);
+               tracker++;
+          }
+          if(x%3 == 0)
+          {
+               tester.addBack(10*x);
+               tracker++;
+          }
+          if(x%4 == 0)
+          {
+               tester.removeFront();
+               tracker--;
+          }
+          if(x%5 == 0)
+          {
+               tester.removeBack();
+               tracker--;
+          }
+     }
+
+
+     std::cout<<"18: searchng a value not on the list: ";
+     numTests++;
+     if(tester.search(41))//never added to the list
+     {
+          isPassed = false;
+          std::cout<<"FAILED\n \tsearched for a value, 41, never on the list and returned true\n";
+          //write on file "search(41) returned true when 41 was never added"
+     }
+     else
+     {
+          std::cout<<"PASSED\n";
+     }
+
+     std::cout<<"19: searching for a value on the list: ";
+     numTests++;
+     if(tester.search(2))//is on the list
+     {
+          std::cout<<"PASSED\n";
+     }
+     else
+     {
+          isPassed = false;
+          std::cout<<"FAILED\n \tsearched for a value, 2, on the list and returned false\n";
+          //write on file "search(2) returned false when 2 was on the list"
+     }
+
+     std::cout<<"20: searching for value removed from the front: ";
+     numTests++;
+     if(tester.search(4))//removed by removeFront()
+     {
+          isPassed = false;
+          std::cout<<"FAILED\n \tsearch for a value, 4, removed from the front returned true\n";
+          //write to file "search(4) returned true when 4 was removed from the front"
+     }
+     else
+     {
+          std::cout<<"PASSED\n";
+     }
+
+     std::cout<<"20: searching for a value removed from the back: ";
+     numTests++;
+     if(tester.search(30))//removed by removeBack()
+     {
+          isPassed = false;
+          std::cout<<"FAILED\n \tsearch for a value, 30, removed from the back returned true\n";
+          //write to file "search(30) returned true when 30 was removed from the back"
      }
 
      return(isPassed);
