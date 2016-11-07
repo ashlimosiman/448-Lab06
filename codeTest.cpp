@@ -247,7 +247,7 @@ bool codeTest::test6()
      int tracker=0;
 
      std::cout<<"14: size is correct after multiple addFront()\'s: ";
-     numTests++:
+     numTests++;
      for(int x = 0 ; x < size ; x++)
      {
           if(x%6 == 0)
