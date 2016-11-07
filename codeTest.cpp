@@ -48,7 +48,7 @@ bool codeTest::test1()
      std::cout<<"A new list is seen as empty: ";
      if(tester.isEmpty())
      {
-          std::cout<"PASSED\n";
+          std::cout<<"PASSED\n";
      }
      else
      {
@@ -69,7 +69,95 @@ bool codeTest::test1()
           std::cout<<"PASSED\n";
      }
 
+     return(isPassed);
+}
 
+bool codeTest::test2()
+{
+     bool isPassed=true;
+     LinkedListOfInts tester;
+
+     std::cout<<"using removeFront on a new list: ";
+     if(tester.removeFront())
+     {
+          isPassed=false;
+          std::cout<<"FAILED\n \tremoving a value from the front of an empty list returned true\n";
+          //write to file "removeFront() on an empty list returned true"
+     }
+     else
+     {
+          std::cout<<"PASSED\n";
+     }
+
+     std::cout<<"size is still zero after removing the front node of an empty list: ";
+     if(tester.size() == 0)
+     {
+          std::cout<<"PASSED\n";
+     }
+     else
+     {
+          isPassed=false;
+          std::cout<<"FAILED\n \tExpected size: 0 Received size: "<<tester.size()<<"\n";
+          //write to file "removeFront() on an empty list changed the size from zero";
+     }
+
+     std::cout<<"list still seen as empty after removing front node of an empty list: ";
+     if(tester.isEmpty())
+     {
+          std::cout<<"PASSED\n";
+     }
+     else
+     {
+          isPassed=false;
+          std::cout<<"FAILED\n \tisEmpty() returned false when removeFront() was used on an empty list\n";
+          //write to file "removeFront() on an empty list has made isEmpty() return false"
+     }
+
+     return(isPassed);
+}
+
+bool codeTest::test3()
+{
+     bool isPassed=true;
+     LinkedListOfInts tester;
+
+     std::cout<<"using removeBack on a new list: ";
+     if(tester.removeBack())
+     {
+          isPassed=false;
+          std::cout<<"FAILED\n \tremoving a value from the back of an empty list returned true\n";
+          //write to file "removeBack() on an empty list returned true"
+     }
+     else
+     {
+          std::cout<<"PASSED\n";
+     }
+
+     std::cout<<"size is still zero after removing the back node of an empty list: ";
+     if(tester.size() == 0)
+     {
+          std::cout<<"PASSED\n";
+     }
+     else
+     {
+          isPassed=false;
+          std::cout<<"FAILED\n \tExpected size: 0 Received size: "<<tester.size()<<"\n";
+          //write to file "removeBack() on an empty list changed the size from zero";
+     }
+
+     std::cout<<"list still seen as empty after removing back node of an empty list: ";
+     if(tester.isEmpty())
+     {
+          std::cout<<"PASSED\n";
+     }
+     else
+     {
+          isPassed=false;
+          std::cout<<"FAILED\n \tisEmpty() returned false when removeBack() was used on an empty list\n";
+          //write to file "removeBack() on an empty list has made isEmpty() return false"
+     }
+
+     return(isPassed);
 }
 
 /*

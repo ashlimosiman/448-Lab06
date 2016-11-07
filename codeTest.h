@@ -27,9 +27,9 @@ class codeTest
 
                codeTest();
                codeTest(int num);
-               bool test1();
-               bool test2();
-               bool test3();
+               bool test1();//DONE
+               bool test2();//DONE
+               bool test3();//DONE
                bool test4();
                bool test5();
                bool test6();
@@ -43,6 +43,7 @@ class codeTest
                bool test14();
                bool test15();
                bool test16();
+               bool test17();
 
                /*
                void runTests();
