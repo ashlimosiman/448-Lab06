@@ -23,7 +23,7 @@ void codeTest::runTests()
      test7();
      test8();
      test9();
-
+     test10();
 
      std::cout<<"\n\n number of tests done: "<<numTests<<"\n\n";
 }
