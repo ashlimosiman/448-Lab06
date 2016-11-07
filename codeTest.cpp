@@ -378,7 +378,7 @@ bool codeTest::test10()
 
      size = size*2;//increase size to better randomly add and remove nodes
 
-     for(int x = 0 ; x < size ; x++)
+     for(unsigned int x = 0 ; x < size ; x++)
      {
           if(x%2 == 0)
           {
@@ -392,6 +392,7 @@ bool codeTest::test10()
           }
           if(x%4 == 0)
           {
+               std::cout<<"\n"<<x<<"\n";
                if(tester.removeFront())
                {
                     std::cout<<"\nfront node gone\n";
@@ -400,6 +401,7 @@ bool codeTest::test10()
           }
           if(x%5 == 0)
           {
+               std::cout<<"\n"<<x<<"\n";
                if(tester.removeBack())
                {
                     std::cout<<"\nback node gone\n";
