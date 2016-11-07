@@ -14,20 +14,16 @@ codeTest::codeTest(int num)
 
 void codeTest::runTests()
 {
-     if(test1() && test2() && test3())
-     {
-          std::cout<<"Passing so far...\n";
-     }
-
-     if(test4() && test5())
-     {
-          std::cout<<"You got this, file!\n";
-     }
-
-     if(test6() && test7() && test8() && test9())
-     {
-          std::cout<<"All "<<numTests<<"are going well!\n";
-     }
+     test1();
+     test2();
+     test3();
+     test4();
+     test5();
+     test6();
+     test7();
+     test8();
+     test9();
+     
 
      std::cout<<"\n\n number of tests done: "<<numTests<<"\n\n";
 }
@@ -344,7 +340,7 @@ bool codeTest::test9()
      LinkedListOfInts tester;
      int tracker = 0;
 
-     std::cout<<"16: size is correct after removing nodes from the back: ";
+     std::cout<<"17: size is correct after removing nodes from the back: ";
      numTests++;
      for(int x = 0 ; x < size ; x++)
      {
