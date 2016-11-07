@@ -16,15 +16,10 @@ codeTest::codeTest(int num)
 
 void codeTest::runTests()
 {
-     /*
-     LinkedListOfInts emptyTest;
-     LinkedListOfInts sizeTest;
-     LinkedListOfInts searchTest;
-     */
-
-     testIsEmpty();
-     testSize();
-     testSearch();
+     if(test1() && test2() && test3())
+     {
+          std::cout<<"Passing so far...\n";
+     }
 }
 
 bool codeTest::test1()
