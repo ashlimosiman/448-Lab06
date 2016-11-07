@@ -24,6 +24,8 @@ void codeTest::runTests()
      test8();
      test9();
      test10();
+     test11();
+     test12();
 
      std::cout<<"\n\n number of tests done: "<<numTests<<"\n\n";
 }
@@ -378,7 +380,7 @@ bool codeTest::test10()
 
      size = size*2;//increase size to better randomly add and remove nodes
 
-     for(unsigned int x = 0 ; x < size ; x++)
+     for(int x = 0 ; x < size ; x++)
      {
           if(x%2 == 0)
           {
@@ -392,20 +394,12 @@ bool codeTest::test10()
           }
           if(x%4 == 0)
           {
-               std::cout<<"\n"<<x<<"\n";
-               if(tester.removeFront())
-               {
-                    std::cout<<"\nfront node gone\n";
-               }
+               tester.removeFront();
                tracker--;
           }
           if(x%5 == 0)
           {
-               std::cout<<"\n"<<x<<"\n";
-               if(tester.removeBack())
-               {
-                    std::cout<<"\nback node gone\n";
-               }
+               tester.removeBack();
                tracker--;
           }
      }
@@ -459,13 +453,141 @@ bool codeTest::test10()
           //write to file "search(30) returned true when 30 was removed from the back"
      }
 
-     std::cout<<"\n\nCHECK: \n";
-     std::vector<int> test = tester.toVector();
-     for(int x = 0 ; x < test.size() ; x++)
+     return(isPassed);
+}
+
+bool codeTest::test11()
+{
+     bool isPassed = true;
+     LinkedListOfInts tester;
+     std::vector<int> ans;
+     std::vector<int> result;
+     int tracker = 0;
+
+     std::cout<<"22: order upheld after removing front nodes: ";
+     numTests++;
+     for(int x = 0 ; x < size ; x++)
      {
-          std::cout<<test.at(x)<<"\n";
+          if(x%2 == 0)
+          {
+               tester.addFront(x);
+               ans.insert(ans.begin(), x);
+          }
+          if(x%3 == 0)
+          {
+               tester.removeFront();
+               ans.erase(ans.begin());
+          }
      }
-     std::cout<<"END OF TEST\n\n";
+
+     result = tester.toVector();
+
+     for(int y = 0; y < result.size() ; y++)
+     {
+          if(ans.at(y) != result.at(y))
+          {
+               isPassed = false;
+          }
+     }
+
+     if(isPassed)
+     {
+          std::cout<<"PASSED\n";
+     }
+     else
+     {
+          std::cout<<"FAILED\n \tremoveFront() was not working correctly. Comparison Below: \n";
+          //write to file "removeFront() did not correctly uphold the order of the list"
+     }
+
+     std::cout<<"COMPARISON:\n YOURS: { ";
+     std::cout<<"{ ";
+     for(int a = 0 ; a < result.size() ; a++)
+     {
+          std::cout<<result.at(a);
+          if(a < result.size() - 1)
+          {
+               std::cout<<", ";
+          }
+     }
+     std::cout<<" }\n ANSWER: { ";
+     for(int b = 0 ; b < ans.size() ; b++)
+     {
+          std::cout<<ans.at(b);
+          if(b < ans.size() - 1)
+          {
+               std::cout<<", ";
+          }
+     }
+     std::cout<<" }\n\n";
+
+     return(isPassed);
+}
+
+bool codeTest::test12()
+{
+     bool isPassed = true;
+     LinkedListOfInts tester;
+     std::vector<int> ans;
+     std::vector<int> result;
+     int tracker = 0;
+
+     std::cout<<"23: order upheld after removing back nodes: ";
+     numTests++;
+     for(int x = 0 ; x < size ; x++)
+     {
+          if(x%2 == 0)
+          {
+               tester.addBack(x);
+               ans.push_back(x);
+          }
+          if(x%3 == 0)
+          {
+               tester.removeBack();
+               ans.pop_back();
+          }
+     }
+
+     result = tester.toVector();
+
+     for(int y = 0; y < result.size() ; y++)
+     {
+          if(ans.at(y) != result.at(y))
+          {
+               isPassed = false;
+          }
+     }
+
+     if(isPassed)
+     {
+          std::cout<<"PASSED\n";
+     }
+     else
+     {
+          std::cout<<"FAILED\n \tremoveBack() was not working correctly. Comparison Below: \n";
+          //write to file "removeBack() did not correctly uphold the order of the list"
+     }
+
+     std::cout<<"COMPARISON:\n YOURS: { ";
+     std::cout<<"{ ";
+     for(int a = 0 ; a < result.size() ; a++)
+     {
+          std::cout<<result.at(a);
+          if(a < result.size() - 1)
+          {
+               std::cout<<", ";
+          }
+     }
+     std::cout<<" }\n ANSWER: { ";
+     for(int b = 0 ; b < ans.size() ; b++)
+     {
+          std::cout<<ans.at(b);
+          if(b < ans.size() - 1)
+          {
+               std::cout<<", ";
+          }
+     }
+     std::cout<<" }\n\n";
 
      return(isPassed);
 }
