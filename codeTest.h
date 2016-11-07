@@ -27,6 +27,7 @@ class codeTest
 
                codeTest();
                codeTest(int num);
+               void runTests();
                bool test1();//DONE
                bool test2();//DONE
                bool test3();//DONE
