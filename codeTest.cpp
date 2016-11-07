@@ -442,7 +442,7 @@ bool codeTest::test10()
           std::cout<<"PASSED\n";
      }
 
-     std::cout<<"20: searching for a value removed from the back: ";
+     std::cout<<"21: searching for a value removed from the back: ";
      numTests++;
      if(tester.search(30))//removed by removeBack()
      {
@@ -450,6 +450,14 @@ bool codeTest::test10()
           std::cout<<"FAILED\n \tsearch for a value, 30, removed from the back returned true\n";
           //write to file "search(30) returned true when 30 was removed from the back"
      }
+
+     std::cout<<"\n\nCHECK: \n";
+     std::vector<int> test = tester.toVector();
+     for(int x = 0 ; x < test.size() ; x++)
+     {
+          std::cout<<test.at(x)<<"\n";
+     }
+     std::cout<<"END OF TEST\n\n";
 
      return(isPassed);
 }
