@@ -346,7 +346,7 @@ bool codeTest::test9()
 
      std::cout<<"16: size is correct after removing nodes from the back: ";
      numTests++;
-     for(int x = 0 ; int x < size ; x++)
+     for(int x = 0 ; x < size ; x++)
      {
           if(x%2 == 0)
           {
