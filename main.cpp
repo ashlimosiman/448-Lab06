@@ -1,6 +1,6 @@
 /**
-*	@author
-*	@date
+*	@author Ashli Mosiman
+*	@date Nov 7, 2016
 *	@file main.cpp
 *	@brief driver for LinkedList demo
 */
@@ -10,13 +10,8 @@
 
 int main(int argc, char** argv)
 {
-	//Example of declaring a LinkedListOfInts
 	LinkedListOfInts testableList;
 	int size=0;
-	//You won't do all the tests in main; that's what your Test class will be for
-	//Example:
-	//TestSuite myTester;
-	//myTester.runTests();
 
 	//taking in a size for the list
 	while(size < 10)
@@ -26,11 +21,10 @@ int main(int argc, char** argv)
 		std::cout<<'\n';
 	}
 
-
+	//running the tests
 	codeTest myTest(size);
 	myTest.runTests();
 
-	//std::cout << "Running...\nAnd we're done.\nGoodbye.\n";
 
 	return (0);
 

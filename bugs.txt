@@ -1,0 +1,8 @@
+isEmpty() returned true after adding one node to the front
+isEmpty() returned true after adding one node to the back
+after removing front nodes, the size was not correctly tracked
+after removing back nodes, size was not correctly tracked
+search(4) returned true when 4 was removed from the front
+search(30) returned true when 30 was removed from the back
+removeFront() did not correctly uphold the order of the list
+removeBack() did not correctly uphold the order of the list
