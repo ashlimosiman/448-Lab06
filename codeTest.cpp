@@ -7,11 +7,13 @@
 codeTest::codeTest()
 {
     size = 10;
+    numTests = 0;
 }
 
 codeTest::codeTest(int num)
 {
     size = num;
+    numTests = 0;
 }
 
 void codeTest::runTests()
@@ -27,7 +29,8 @@ bool codeTest::test1()
      bool isPassed=true;
      LinkedListOfInts tester;
 
-     std::cout<<"A new list is of size 0: ";
+     std::cout<<"1: A new list is of size 0: ";
+     numTests++;
      if(tester.size() == 0)
      {
           std::cout<<"PASSED\n";
@@ -40,7 +43,8 @@ bool codeTest::test1()
           //write to file "new list returns a size that's not zero"
      }
 
-     std::cout<<"A new list is seen as empty: ";
+     std::cout<<"2: A new list is seen as empty: ";
+     numTests++;
      if(tester.isEmpty())
      {
           std::cout<<"PASSED\n";
@@ -52,7 +56,8 @@ bool codeTest::test1()
           //write to file "isEmpty() on a new list returned false"
      }
 
-     std::cout<<"Searching for a value on a new list returns false: ";
+     std::cout<<"3: Searching for a value on a new list returns false: ";
+     numTests++;
      if(tester.search(1))
      {
           isPassed=false;
@@ -72,7 +77,8 @@ bool codeTest::test2()
      bool isPassed=true;
      LinkedListOfInts tester;
 
-     std::cout<<"using removeFront on a new list: ";
+     std::cout<<"4: using removeFront on a new list: ";
+     numTests++;
      if(tester.removeFront())
      {
           isPassed=false;
@@ -84,7 +90,8 @@ bool codeTest::test2()
           std::cout<<"PASSED\n";
      }
 
-     std::cout<<"size is still zero after removing the front node of an empty list: ";
+     std::cout<<"5: size is still zero after removing the front node of an empty list: ";
+     numTests++;
      if(tester.size() == 0)
      {
           std::cout<<"PASSED\n";
@@ -96,7 +103,8 @@ bool codeTest::test2()
           //write to file "removeFront() on an empty list changed the size from zero";
      }
 
-     std::cout<<"list still seen as empty after removing front node of an empty list: ";
+     std::cout<<"6: list still seen as empty after removing front node of an empty list: ";
+     numTests++;
      if(tester.isEmpty())
      {
           std::cout<<"PASSED\n";
@@ -116,7 +124,8 @@ bool codeTest::test3()
      bool isPassed=true;
      LinkedListOfInts tester;
 
-     std::cout<<"using removeBack on a new list: ";
+     std::cout<<"7: using removeBack on a new list: ";
+     numTests++;
      if(tester.removeBack())
      {
           isPassed=false;
@@ -128,7 +137,8 @@ bool codeTest::test3()
           std::cout<<"PASSED\n";
      }
 
-     std::cout<<"size is still zero after removing the back node of an empty list: ";
+     std::cout<<"8: size is still zero after removing the back node of an empty list: ";
+     numTests++;
      if(tester.size() == 0)
      {
           std::cout<<"PASSED\n";
@@ -140,7 +150,8 @@ bool codeTest::test3()
           //write to file "removeBack() on an empty list changed the size from zero";
      }
 
-     std::cout<<"list still seen as empty after removing back node of an empty list: ";
+     std::cout<<"9: list still seen as empty after removing back node of an empty list: ";
+     numTests++;
      if(tester.isEmpty())
      {
           std::cout<<"PASSED\n";
@@ -150,6 +161,72 @@ bool codeTest::test3()
           isPassed=false;
           std::cout<<"FAILED\n \tisEmpty() returned false when removeBack() was used on an empty list\n";
           //write to file "removeBack() on an empty list has made isEmpty() return false"
+     }
+
+     return(isPassed);
+}
+
+bool codeTest::test4()
+{
+     bool isPassed=true;
+     LinkedListOfInts tester;
+
+     std::cout<<"10: size is one after adding one node to the front: ";
+     numTests++;
+     tester.addFront(1);
+     if(tester.size() == 1)
+     {
+          std::cout<<"PASSED\n";
+     }
+     else
+     {
+          isPassed = false;
+          std::cout<<"FAILED\n \tExpected size: 1 Received size: "<<tester.size()<<"\n";
+          //write to file "addFront() did not increment size correctly after only one add"
+     }
+
+     std::cout<<"11: List seen as not empty after adding node to the front: ";
+     numTests++;
+     if(tester.isEmpty())
+     {
+          isPassed = false;
+          std::cout<<"FAILED\n \tafter adding one node to the front, isEmpty() returned true\n";
+          //write to file "isEmpty() returned true after adding one node to the front"
+     }
+     else
+     {
+          std::cout<<"PASSED\n";
+     }
+
+     return(isPassed);
+}
+
+bool codeTest::test5()
+{
+     bool isPassed = true;
+     LinkedListOfInts tester;
+
+     std::cout<<"12: size is one after adding one node the the back: ";
+     numTests++;
+     tester.addBack(1);
+     if(tester.size() == 1)
+     {
+          std::cout<<"PASSED\n";
+     }
+     else
+     {
+          isPassed = false;
+          std::cout<<"FAILED\n \tExpected size: 1 Received size: "<<tester.size()<<"\n";
+          //write to file "addBack() did not increment size correctly after adding one node to the back"
+     }
+
+     std::cout<<"13: List seen as not epmty after adding one node to the back: ";
+     numTests++;
+     if(tester.isEmpty())
+     {
+          isPassed = false;
+          std::cout<<"FAILED\n \tafter adding one node to the back, isEmpty() returned true\n";
+          //write to file "isEmpty() returned true after adding one node to the back"
      }
 
      return(isPassed);

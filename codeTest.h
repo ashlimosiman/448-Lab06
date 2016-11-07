@@ -31,8 +31,8 @@ class codeTest
                bool test1();//DONE
                bool test2();//DONE
                bool test3();//DONE
-               bool test4();
-               bool test5();
+               bool test4();//DONE
+               bool test5();//DONE
                bool test6();
                bool test7();
                bool test8();
@@ -43,8 +43,6 @@ class codeTest
                bool test13();
                bool test14();
                bool test15();
-               bool test16();
-               bool test17();
 
                /*
                void runTests();
@@ -56,5 +54,6 @@ class codeTest
 
      private:
          int size;
+         int numTests;
 };
 #endif
